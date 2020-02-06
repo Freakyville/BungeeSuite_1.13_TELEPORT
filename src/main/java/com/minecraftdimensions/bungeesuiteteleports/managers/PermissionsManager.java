@@ -1,4 +1,4 @@
-package bungeesuiteteleports.managers;
+package com.minecraftdimensions.bungeesuiteteleports.managers;
 
 import com.minecraftdimensions.bungeesuiteteleports.BungeeSuiteTeleports;
 import org.bukkit.entity.Player;

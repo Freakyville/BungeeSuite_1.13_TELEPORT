@@ -1,4 +1,4 @@
-package bungeesuiteteleports.commands;
+package com.minecraftdimensions.bungeesuiteteleports.commands;
 
 import com.minecraftdimensions.bungeesuiteteleports.managers.TeleportsManager;
 import org.bukkit.command.Command;

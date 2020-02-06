@@ -1,4 +1,4 @@
-package bungeesuiteteleports.tasks;
+package com.minecraftdimensions.bungeesuiteteleports.tasks;
 
 import com.minecraftdimensions.bungeesuiteteleports.BungeeSuiteTeleports;
 import org.bukkit.Bukkit;

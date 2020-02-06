@@ -1,4 +1,4 @@
-package bungeesuiteteleports.listeners;
+package com.minecraftdimensions.bungeesuiteteleports.listeners;
 
 import com.minecraftdimensions.bungeesuiteteleports.managers.PermissionsManager;
 import com.minecraftdimensions.bungeesuiteteleports.managers.TeleportsManager;
