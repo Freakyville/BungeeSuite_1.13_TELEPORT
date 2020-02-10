@@ -23,24 +23,29 @@ public class TeleportsManager {
     public static HashMap<String, Location> pendingTeleportLocations = new HashMap<String, Location>();
     public static ArrayList<Player> ignoreTeleport = new ArrayList<Player>();
 
-    private static void sendRequest(String type, String sender, String targetPlayer){
+    private static void sendRequest(String type, String sender, String targetPlayer, int cooldown){
         StringBuilder sb = new StringBuilder();
         sb.append(type).append(";");
+        sb.append(sender).append(";");
+        sb.append(targetPlayer).append(";");
+        sb.append(cooldown);
+        RedisManager.getInstance().publish(sb.toString(), "TELEPORT_REQUEST");
+    }
+
+    public static void tpAll( CommandSender sender, String targetPlayer ) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("TpAll").append(";");
         sb.append(sender).append(";");
         sb.append(targetPlayer);
         RedisManager.getInstance().publish(sb.toString(), "TELEPORT_REQUEST");
     }
 
-    public static void tpAll( CommandSender sender, String targetPlayer ) {
-        sendRequest("TpAll", sender.getName(), targetPlayer);
-    }
-
     public static void tpaRequest( CommandSender sender, String targetPlayer ) {
-        sendRequest("TpaRequest", sender.getName(), targetPlayer);
+        sendRequest("TpaRequest", sender.getName(), targetPlayer, CooldownManager.getInstance().getCooldown("tpa",sender));
     }
 
     public static void tpaHereRequest( CommandSender sender, String targetPlayer ) {
-        sendRequest("TpaHereRequest", sender.getName(), targetPlayer);
+        sendRequest("TpaHereRequest", sender.getName(), targetPlayer, CooldownManager.getInstance().getCooldown("tpahere", sender));
     }
 
     public static void tpAccept( CommandSender sender ) {
