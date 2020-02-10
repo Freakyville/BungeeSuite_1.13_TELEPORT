@@ -48,16 +48,12 @@ public class TeleportsListener implements Listener {
 			TeleportsManager.ignoreTeleport.remove(e.getPlayer());
 			return;
 		}
-		TeleportsManager.sendTeleportBackLocation(e.getPlayer(), false);	
+		TeleportsManager.sendTeleportBackLocation(e.getPlayer());
 	}
 	
 	@EventHandler
 	public void playerLeave(PlayerQuitEvent e){
-		boolean empty = false;
-		if(Bukkit.getOnlinePlayers().size() == 1){
-			empty = true;
-		}
-		TeleportsManager.sendTeleportBackLocation(e.getPlayer(), empty);	
+		TeleportsManager.sendTeleportBackLocation(e.getPlayer());	
 	}
 	
 	@EventHandler
