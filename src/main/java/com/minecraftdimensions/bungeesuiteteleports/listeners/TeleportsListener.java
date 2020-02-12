@@ -53,7 +53,7 @@ public class TeleportsListener implements Listener {
 	
 	@EventHandler
 	public void playerLeave(PlayerQuitEvent e){
-		TeleportsManager.sendTeleportBackLocation(e.getPlayer());	
+		TeleportsManager.sendTeleportBackLocation(e.getPlayer());
 	}
 	
 	@EventHandler

@@ -1,5 +1,6 @@
 package com.minecraftdimensions.bungeesuiteteleports.managers;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -20,7 +21,11 @@ public class CooldownManager {
 
     public int getCooldown(String type, CommandSender player) {
         if (player instanceof Player) {
-            return cooldowns.get(type).entrySet().stream().filter(f -> player.hasPermission(f.getKey())).mapToInt(Map.Entry::getValue).min().orElse(0);
+            if (!cooldowns.containsKey(type)) {
+                return 0;
+            }
+            return cooldowns.get(type).entrySet().stream().filter(f -> player.hasPermission("bungeesuite.cooldown." + f.getKey()))
+                    .mapToInt(Map.Entry::getValue).min().orElse(0);
         }
         return 0;
     }

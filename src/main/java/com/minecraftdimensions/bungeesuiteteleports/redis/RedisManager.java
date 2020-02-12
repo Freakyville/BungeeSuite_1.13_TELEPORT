@@ -68,8 +68,8 @@ public class RedisManager {
                             }
                         } else if (args[0].equalsIgnoreCase("TeleportToLocation")) {
                             if (args[1].equalsIgnoreCase(BungeeSuiteTeleports.server)) {
-                                String name = args[1];
-                                String loc = args[2];
+                                String name = args[2];
+                                String loc = args[3];
                                 String[] locs = loc.split("~!~");
                                 TeleportsManager.teleportPlayerToLocation(name, locs[1], Double.parseDouble(locs[2]), Double.parseDouble(locs[3]), Double.parseDouble(locs[4]));
                             }

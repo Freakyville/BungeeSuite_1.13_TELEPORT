@@ -5,6 +5,7 @@ import com.minecraftdimensions.bungeesuiteteleports.listeners.TeleportsListener;
 import com.minecraftdimensions.bungeesuiteteleports.listeners.TeleportsMessageListener;
 import com.minecraftdimensions.bungeesuiteteleports.managers.CooldownManager;
 import com.minecraftdimensions.bungeesuiteteleports.redis.RedisManager;
+import io.github.freakyville.utils.BukkitHelper;
 import io.github.freakyville.utils.config.ConfigHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -34,6 +35,7 @@ public class BungeeSuiteTeleports extends JavaPlugin {
         for (String command : configHandler.getConfigSection("cooldowns").getKeys(false)) {
             cooldowns.putIfAbsent(command, new HashMap<>());
             for (String perm : configHandler.getConfigSection("cooldowns." + command).getKeys(false)) {
+                Bukkit.getLogger().info("COMMAND " + command + " - " + perm);
                 cooldowns.get(command).put(perm, configHandler.getInt("cooldowns." + command + "." + perm));
             }
         }

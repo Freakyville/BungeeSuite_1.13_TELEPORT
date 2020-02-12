@@ -31,7 +31,7 @@
                             <relocations>
                                 <relocation>
                                     <pattern>io.github.freakyville.utils</pattern>
-                                    <shadedPattern>io.shaded.bungeesuitewarps.github.freakyville.utils</shadedPattern>
+                                    <shadedPattern>io.shaded.bungeesuiteteleport.github.freakyville.utils</shadedPattern>
                                     <includes>
                                         <include>io.github.freakyville.utils.*</include>
                                     </includes>
