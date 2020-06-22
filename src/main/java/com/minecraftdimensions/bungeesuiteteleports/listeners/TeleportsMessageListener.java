@@ -41,7 +41,7 @@ public class TeleportsMessageListener implements PluginMessageListener {
 
             }
             if ( name != null ) {
-                Player p = Bukkit.getPlayer( name );
+                Player p = Bukkit.getPlayerExact( name );
                 p.sendMessage( ChatColor.RED + "Teleports - " + ChatColor.GOLD + BungeeSuiteTeleports.instance.getDescription().getVersion() );
             }
             TeleportsManager.sendVersion();

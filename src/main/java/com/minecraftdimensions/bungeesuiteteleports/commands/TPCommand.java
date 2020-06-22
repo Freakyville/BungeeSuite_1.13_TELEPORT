@@ -15,9 +15,9 @@ public class TPCommand implements CommandExecutor {
     public boolean onCommand( CommandSender sender, Command command, String label, String[] args ) {
         if ( !( sender instanceof Player ) ) {
             if ( args.length == 2 ) {
-                Bukkit.getPlayer( args[0] ).teleport( Bukkit.getPlayer( args[1] ) );
+                Bukkit.getPlayerExact( args[0] ).teleport( Bukkit.getPlayerExact( args[1] ) );
             } else if ( args.length == 4 ) {
-                Player p = Bukkit.getPlayer( args[0] );
+                Player p = Bukkit.getPlayerExact( args[0] );
                 p.teleport( new Location( p.getWorld(), Double.parseDouble( args[1] ), Double.parseDouble( args[2] ), Double.parseDouble( args[3] ) ) );
             }
         }
@@ -37,7 +37,7 @@ public class TPCommand implements CommandExecutor {
             return true;
         }
         if ( args.length == 5 ) {
-            if ( Bukkit.getPlayer( args[0] ) != null ) {
+            if ( Bukkit.getPlayerExact( args[0] ) != null ) {
                 String x = args[1];
                 String y = args[2];
                 String z = args[3];

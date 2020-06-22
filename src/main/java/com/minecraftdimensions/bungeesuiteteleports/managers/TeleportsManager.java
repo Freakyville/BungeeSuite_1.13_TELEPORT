@@ -99,8 +99,8 @@ public class TeleportsManager {
     }
 
     public static void teleportPlayerToPlayer( final String player, String target ) {
-        Player p = Bukkit.getPlayer( player );
-        Player t = Bukkit.getPlayer( target );
+        Player p = Bukkit.getPlayerExact( player );
+        Player t = Bukkit.getPlayerExact( target );
         if ( p != null ) {
             p.teleport( t );
         } else {
@@ -120,7 +120,7 @@ public class TeleportsManager {
 
     public static void teleportPlayerToLocation( final String player, String world, double x, double y, double z ) {
         Location t = new Location( Bukkit.getWorld( world ), x, y, z );
-        Player p = Bukkit.getPlayer( player );
+        Player p = Bukkit.getPlayerExact( player );
         if ( p != null ) {
             p.teleport( t );
         } else {
